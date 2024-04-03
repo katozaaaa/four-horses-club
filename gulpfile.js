@@ -32,8 +32,8 @@ function scripts() {
 	)
 	.pipe(include())
 	.pipe(uglify())
-	.pipe(rename('index.min.js'))
-	.pipe(dest('public/js/'))
+	.pipe(rename('script.min.js'))
+	.pipe(dest('public/scripts/'))
 	.pipe(browserSync.stream())
 }
 
@@ -49,7 +49,7 @@ function styles() {
 		.pipe(cleancss({ 
 			level: {1: {specialComments: 0}}
 		}))
-		.pipe(rename('index.min.css'))
+		.pipe(rename('style.min.css'))
 		.pipe(dest('public/styles/'))
 		.pipe(browserSync.stream())
 }
@@ -68,19 +68,19 @@ function pages() {
 
 function copyFonts() {
 
-  return src('app/assets/fonts/**/*')
+  return src('app/assets/fonts/**/*.*')
     .pipe(dest('public/assets/fonts/'))
 }
 
 function copyImages() {
 
-  return src('app/assets/media/**/*')
+  return src('app/assets/images/**/*.*')
     .pipe(dest('public/assets/images/'))
 }
 
 function copyIcons() {
 
-  return src('app/assets/media/**/*')
+  return src('app/assets/icons/**/*.*')
     .pipe(dest('public/assets/icons/'))
 }
 
